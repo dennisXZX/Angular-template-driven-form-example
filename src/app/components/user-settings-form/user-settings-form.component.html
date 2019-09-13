@@ -1,0 +1,54 @@
+<div class="container">
+  <h2>User Settings</h2>
+
+  <form>
+    <!-- Name Input field -->
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input id="name" name="name" placeholder="Enter Your Name" class="form-control" />
+    </div>
+
+    <!-- Checkbox field -->
+    <div class="form-check form-group">
+      <input class="form-check-input" type="checkbox" value="" id="emailOffers">
+      <label class="form-check-label" for="emailOffers">
+        Email Special Offers
+      </label>
+    </div>
+
+    <!-- Radio Button Group -->
+    <p>User Interface Style</p>
+    <div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="interface" id="lightInterface" value="option1" checked>
+        <label class="form-check-label" for="lightInterface">
+          Light Interface
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="interface" id="darkInterface" value="option2">
+        <label class="form-check-label" for="darkInterface">
+          Dark Interface
+        </label>
+      </div>
+    </div>
+
+    <!-- Select Menu -->
+    <div class="form-group">
+      <label for="subscriptionType">Subscription Type</label>
+      <select class="form-control" id="subscriptionType">
+        <option>Monthly</option>
+        <option>Annual</option>
+        <option>Lifetime</option>
+      </select>
+    </div>
+
+    <!-- Textarea -->
+    <div class="form-group">
+      <label for="notes">Notes</label>
+      <textarea id="notes" name="notes" class="form-control" rows="4"></textarea>
+    </div>
+
+    <button class="btn btn-primary">OK</button>
+  </form>
+</div>

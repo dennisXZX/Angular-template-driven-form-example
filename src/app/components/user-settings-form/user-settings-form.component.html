@@ -1,16 +1,29 @@
 <div class="container">
   <h2>User Settings</h2>
 
-  <form>
+  <form #userSettingsForm="ngForm">
+
     <!-- Name Input field -->
     <div class="form-group">
       <label for="name">Name</label>
-      <input id="name" name="name" placeholder="Enter Your Name" class="form-control" />
+
+      <input id="name"
+             name="name"
+             placeholder="Enter Your Name"
+             class="form-control"
+             [(ngModel)]="userSettings.name"
+      />
     </div>
 
     <!-- Checkbox field -->
     <div class="form-check form-group">
-      <input class="form-check-input" type="checkbox" value="" id="emailOffers">
+      <input class="form-check-input"
+             type="checkbox"
+             name="emailOffers"
+             id="emailOffers"
+             [(ngModel)]="userSettings.emailOffers"
+      >
+
       <label class="form-check-label" for="emailOffers">
         Email Special Offers
       </label>
@@ -19,24 +32,47 @@
     <!-- Radio Button Group -->
     <p>User Interface Style</p>
     <div class="form-group">
+
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="interface" id="lightInterface" value="option1" checked>
+        <input class="form-check-input"
+               type="radio"
+               name="interface"
+               id="lightInterface"
+               value="light"
+               checked
+               [(ngModel)]="userSettings.interfaceStyle"
+        >
+
         <label class="form-check-label" for="lightInterface">
           Light Interface
         </label>
       </div>
+
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="interface" id="darkInterface" value="option2">
+        <input class="form-check-input"
+               type="radio"
+               name="interface"
+               id="darkInterface"
+               value="dark"
+               [(ngModel)]="userSettings.interfaceStyle"
+        >
+
         <label class="form-check-label" for="darkInterface">
           Dark Interface
         </label>
+
       </div>
     </div>
 
     <!-- Select Menu -->
     <div class="form-group">
       <label for="subscriptionType">Subscription Type</label>
-      <select class="form-control" id="subscriptionType">
+
+      <select class="form-control"
+              id="subscriptionType"
+              name="subscriptionType"
+              [(ngModel)]="userSettings.subscriptionType"
+      >
         <option>Monthly</option>
         <option>Annual</option>
         <option>Lifetime</option>
@@ -46,9 +82,23 @@
     <!-- Textarea -->
     <div class="form-group">
       <label for="notes">Notes</label>
-      <textarea id="notes" name="notes" class="form-control" rows="4"></textarea>
+
+      <textarea id="notes"
+                name="notes"
+                class="form-control"
+                rows="4"
+                [(ngModel)]="userSettings.notes"
+      ></textarea>
     </div>
 
+    <!-- Submit Button -->
     <button class="btn btn-primary">OK</button>
+
+    <!-- Outputting the NgForm object -->
+    <h3>userSettings object</h3>
+    <p>{{ userSettings | json }}</p>
+
+    <h3>ngForm instance</h3>
+    <p>{{ userSettingsForm.value | json }}</p>
   </form>
 </div>

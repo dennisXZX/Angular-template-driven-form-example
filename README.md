@@ -1,27 +1,11 @@
-# AngularTemplateDrivenForm
+### Angular Template Driven Form Example
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
+In order to use Angular template driven form, you need to first import `FormsModule` into your Angular app.
 
-## Development server
+When you have the `FormsModule` imported, Angular would look for <form> tag and internally add an `NgForm` directive `<form NgForm>` and creates an instance of `NgForm`. You can access this instance by `<form #form="ngForm">`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+To hook up a form input with the `ngForm` instance, you need to add `NgModel` to the form input and also give it a `name` attribute.
 
-## Code scaffolding
+However, if you need to enable two-way data binding, you would need to use the `[(ngModel)]="userSettings.name"` in the template.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Validation

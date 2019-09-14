@@ -2,7 +2,7 @@
 
 In order to use Angular template driven form, you need to first import `FormsModule` into your Angular app.
 
-When you have the `FormsModule` imported, Angular would look for <form> tag and internally add an `NgForm` directive `<form NgForm>` and creates an instance of `NgForm`. You can access this instance by `<form #form="ngForm">`
+When you have the `FormsModule` imported, Angular would look for <form> tag and internally add an `NgForm` directive `<form NgForm>` and create an instance of `NgForm`. You can access this instance by using a template reference `<form #userSettingsForm="ngForm">`
 
 To hook up a form input with the `ngForm` instance, you need to add `NgModel` to the form input and also give it a `name` attribute.
 

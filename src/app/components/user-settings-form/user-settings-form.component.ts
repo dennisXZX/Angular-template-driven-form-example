@@ -7,13 +7,17 @@ import { UserSettings } from '../../data/user-settings';
   styleUrls: ['./user-settings-form.component.less']
 })
 export class UserSettingsFormComponent implements OnInit {
-  userSettings: UserSettings = {
+  defaultUserSettings: UserSettings = {
     name: 'Milton',
     emailOffers: true,
     interfaceStyle: 'dark',
     subscriptionType: 'Annual',
     notes: 'here are some notes'
   };
+
+  // Shallow copy the default user settings in case users cancel their changes
+  // Use Lodash if you need to deep clone an object
+  userSettings: UserSettings = { ...this.defaultUserSettings };
 
   constructor() { }
 

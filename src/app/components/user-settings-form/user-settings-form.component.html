@@ -1,7 +1,7 @@
 <div class="container">
   <h2>User Settings</h2>
 
-  <form #userSettingsForm="ngForm">
+  <form #userSettingsForm="ngForm" (ngSubmit)="onSubmit(userSettingsForm)">
 
     <!-- Name Input field -->
     <div class="form-group">
@@ -11,8 +11,17 @@
              name="name"
              placeholder="Enter Your Name"
              class="form-control"
+             required
+             #nameField="ngModel"
+             (blur)="onBlur(nameField)"
+             [class.field-error]="userSettingsForm.submitted && nameField.invalid"
              [(ngModel)]="userSettings.name"
       />
+
+      <div [hidden]="!userSettingsForm.submitted || nameField.valid"
+            class="alert alert-danger mt-3">
+        Enter a name
+      </div>
     </div>
 
     <!-- Checkbox field -->

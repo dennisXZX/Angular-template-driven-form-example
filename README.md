@@ -9,3 +9,9 @@ To hook up a form input with the `ngForm` instance, you need to add `NgModel` to
 However, if you need to enable two-way data binding, you would need to use the `[(ngModel)]="userSettings.name"` in the template.
 
 ### Validation
+
+Angular form comes with these CSS classes for validation purpose.
+
+- `ng-untouched` and `ng-touched`
+- `ng-pristine` (unmodified) and `ng-dirty` (modified)
+- `ng-valid` and `ng-invalid`

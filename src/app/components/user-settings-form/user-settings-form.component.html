@@ -24,6 +24,35 @@
       </div>
     </div>
 
+    <div class="form-group">
+      <label for="startDate">Start Date</label>
+
+      <input type="text"
+             placeholder="Datepicker"
+             class="form-control"
+             name="startDate"
+             id="startDate"
+             [(ngModel)]="startDate"
+             bsDaterangepicker>
+    </div>
+
+    <p>Start Date: {{ startDate }}</p>
+
+    <!-- Toggle Button from ngx-bootstrap -->
+    <p>Anonymous Mode</p>
+    <div class="form-group">
+      <button type="button"
+              class="btn btn-primary"
+              name="anonymousModel"
+              [(ngModel)]="anonymousModel"
+              btnCheckbox
+              btnCheckboxTrue="On"
+              btnCheckboxFalse="Off"
+      >
+        {{ anonymousModel }}
+      </button>
+    </div>
+
     <!-- Checkbox field -->
     <div class="form-check form-group">
       <input class="form-check-input"
@@ -40,36 +69,24 @@
 
     <!-- Radio Button Group -->
     <p>User Interface Style</p>
+
     <div class="form-group">
-
-      <div class="form-check">
-        <input class="form-check-input"
-               type="radio"
-               name="interface"
-               id="lightInterface"
-               value="light"
-               checked
+      <div class="btn-group">
+        <label class="btn btn-primary"
+               name="interfaceStyle"
                [(ngModel)]="userSettings.interfaceStyle"
-        >
+               btnRadio="Light"
+               tabindex="0"
+               role="button"
+        >Light</label>
 
-        <label class="form-check-label" for="lightInterface">
-          Light Interface
-        </label>
-      </div>
-
-      <div class="form-check">
-        <input class="form-check-input"
-               type="radio"
-               name="interface"
-               id="darkInterface"
-               value="dark"
+        <label class="btn btn-primary"
+               name="interfaceStyle"
                [(ngModel)]="userSettings.interfaceStyle"
-        >
-
-        <label class="form-check-label" for="darkInterface">
-          Dark Interface
-        </label>
-
+               btnRadio="Dark"
+               tabindex="0"
+               role="button"
+        >Dark</label>
       </div>
     </div>
 
@@ -82,9 +99,9 @@
               name="subscriptionType"
               [(ngModel)]="userSettings.subscriptionType"
       >
-        <option>Monthly</option>
-        <option>Annual</option>
-        <option>Lifetime</option>
+        <option *ngFor="let type of subscriptionTypes | async">
+          {{ type }}
+        </option>
       </select>
     </div>
 
@@ -98,6 +115,12 @@
                 rows="4"
                 [(ngModel)]="userSettings.notes"
       ></textarea>
+    </div>
+
+    <!-- Post Error Message -->
+    <div [hidden]="!postError"
+          class="alert alert-danger">
+      {{ postErrorMessage }}
     </div>
 
     <!-- Submit Button -->

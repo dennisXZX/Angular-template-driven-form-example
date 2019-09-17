@@ -15,3 +15,5 @@ Angular form comes with these CSS classes for validation purpose.
 - `ng-untouched` and `ng-touched`
 - `ng-pristine` (unmodified) and `ng-dirty` (modified)
 - `ng-valid` and `ng-invalid`
+
+Also `NgModel` has properties associated with the CSS classes, for example, `userSettingsForm.valid` and `userSettingsForm.untouched`.
